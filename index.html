@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app=''>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello, World!</title>
+  </head>
+  <body>
+
+    <input type="text" placeholder="Give me a sentence" ng-model='sentence'>
+    <h1>lowercase: {{ sentence | lowercase }}</h1>
+    <h1>uppercase: {{ sentence | uppercase }}</h1>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
+    {{3.14159265359 * 0.9175 | currency : "€"}} <br>
+
+    <select ng-model='rounded'>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+
+      <p>rounded to nearest {{rounded}}</p>
+
+    {{3.14159265359 | number: rounded}}<br>
+    <br>
+
+    <input type='number' placeholder='cost of bill' ng-model='cost' />
+    <select ng-model='percentage'>
+      <option value='0.05'>5</option>
+      <option value='0.10'>10</option>
+      <option value='0.15'>15</option>
+      <option value='0.20'>20</option>
+      <option value='0.25'>25</option>
+    </select>
+    <p>Subtotal : {{cost}}</p>
+    <p>Tip : {{ percentage * cost | currency : "$"}}</p>
+
+     <p>total : {{cost + (percentage * cost)}}</p>
+     <br>
+     <br> 
+     <br>
+     <div ng-model='words'>
+       <input type='text' placeholder='Boy Name' ng-model='bName' />
+       <input type='text' placeholder='Adjective' ng-model='adject' />
+       <input type='text' placeholder='Plural Noun' ng-model='pNoun' />
+       <input type='text' placeholder='Plural Noun' ng-model='pNoun2' />
+       <input type='text' placeholder='Insect' ng-model='Insect' />
+       <input type='text' placeholder='Plural Noun' ng-model='pNoun3' />
+       <input type='text' placeholder='Verb ending with "s"' ng-model='verb' />
+       <button ng-model='but'>Submit</button>
+     </div>
+    <br>
+    <h3 ng-show='but'>I'm in love with <span>{{bName}}</span>. He's so <span>{{adject}}</span>! He has big flat <span>{{pNoun}}</span>, and when our <span>{{pNoun2}}</span> meet, I get <span>{{Insect}}</span> in my stomach. I've fallen for him like a ton of <span>{{pNoun3}}</span>, and he <span>{{verb}}</span> for me, too. But I think he's got another girlfriend. What should I do?</h3>
+
+
+  </body>
+</html>

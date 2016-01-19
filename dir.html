@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<title>repeat</title>
+	<style>
+		.correctLength {
+			color: green;
+		}
+
+		.wrongLength {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div ng-init='names=["Jeremy","Roger", "Zach"]'>
+
+		<ul>
+			<li ng-repeat='name in names'>
+				{{ name }}
+			</li>
+		</ul>
+	<div ng-show='3+3 == 5'>
+		<p>showing shit</p>
+	</div>
+	</div>
+	<!-- SYMBOLS -->
+	<div ng-init='symbols=["&spades;", "&clubs;", "&hearts;", "&diams;"]'>
+		<ul ng-repeat='sym in symbols'>
+			<li>
+				{{ sym }}
+			</li>
+		</ul>
+	</div>
+	<!-- DUPLICATES -->
+	<div ng-init='dupls=[1,1,2,5,6,9,9,9]'>
+		<ul>
+			<li ng-repeat='dups in dupls track by $index'>
+				{{ dups }}
+			</li>
+		</ul>
+	</div>
+	<!-- OBJECT ITERATION -->
+	<div ng-init='person = {
+    name:"mike",
+    age:23,
+    sex: "male"
+  	};'>
+		<ul>
+			<li ng-repeat='(key,value) in person'>
+				{{ key }} {{ value }}
+			</li>
+		</ul>
+	</div>
+ 
+ <!-- true and false -->
+
+	<div ng-show="3 + 4 == 5">
+  	3 + 4 isn't 5, don't show
+	</div>
+
+	<div ng-show="3 + 4 == 7">
+  	3 + 4 is 7, do show
+	</div>
+
+	<div ng-hide="3 + 4 == 5">
+    3 + 4 isn't 5, don't hide
+	</div>
+
+	<div ng-hide="3 + 4 == 7">
+  	3 + 4 is 7, do hide
+	</div>
+
+	<!-- The hidden ng-hides have a class attribute for 'ng-hide' -->
+
+	<input type="password" ng-model='pword' />
+	<div ng-class="pword.length < 7 ? 'wrongLength' : 'correctLength'" >
+		<p>your password is {{pword.length}} characters long.	</p>
+	</div>
+	<p ng-hide="pword.length > 6">You password is invalid</p>
+	<button ng-show="pword.length > 6">Sign In</button>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+</body>
+</html>
